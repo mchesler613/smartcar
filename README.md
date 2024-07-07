@@ -57,7 +57,7 @@ to be exported later to your development environemnt.
 - You will be presented with a view like this (if you have a Toyota)
 ![authorize](https://i.postimg.cc/mgr0CP79/2024-07-07-15-57-20.jpg)
 - Click on the `Toyota` to proceed to this page
-![allow](https://i.postimg.cc/gjjgrTw6/2024-07-07-16-02-35.jpg)
+![allow](https://i.postimg.cc/cJcy1k6Z/2024-07-07-16-02-35.jpg)
 - Since the data is fake, you might as well click `Allow` to proceed
 - You are redirected to this Django endpoint that is created for this app, `/localhost:8000/vehicles/` which list the vehicles that you alllowed for access
 ![vehicles list](https://i.postimg.cc/MGbDKSGG/2024-07-07-16-08-39.jpg)
