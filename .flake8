@@ -1,0 +1,12 @@
+[flake8]
+extend-ignore = E203
+exclude =
+    .git,
+    __pycache__,
+    old,
+    build,
+    dist,
+    ./getting-started-python-sdk,
+    ./django_smartcar/settings.py,
+    .venv/
+max-complexity = 10
