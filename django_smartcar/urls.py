@@ -19,6 +19,7 @@ from django.urls import path
 from smartcar_app import views
 
 urlpatterns = [
+    path('', views.authorize),
     path('admin/', admin.site.urls),
     path("authorize/", views.authorize),
     path("exchange/", views.exchange_code),

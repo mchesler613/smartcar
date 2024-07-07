@@ -18,7 +18,6 @@ def authorize(request: HttpRequest):
     scoped vehicle data from SmartConnect
     """
     auth_url = client.get_auth_url(scope)
-    print('auth_url', auth_url)
     response = redirect(auth_url)
     return response
 
@@ -50,15 +49,12 @@ def get_vehicles(request: HttpRequest):
     # receive a list of vehicle data
     # `Vehicles` NamedTuple, which has an attribute of 'vehicles' and 'meta'
     result = smartcar.get_vehicles(access_token)
-    import pp
-    pp(result)
 
     response_list = []
 
     for vehicle_id in result.vehicles:
         # instantiate a vehicle based on its id
         vehicle = smartcar.Vehicle(vehicle_id, access_token)
-        pp(vehicle.__dict__)
 
         # use the attributes() method to call to Smartcar API and
         # get information about the vehicle.
