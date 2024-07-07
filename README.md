@@ -1,7 +1,7 @@
 # Django with Smartcar API Integration
 
-If you have a modern vehicle with [telemetry](https://en.wikipedia.org/wiki/Telemetry) installed and remote access via a mobile app, such as Toyota Connected Services, and other similar apps, you can use the [Smartcar](http://smartcar.com) [API](https://github.com/smartcar/python-sdk/tree/master) to retrieve data
-for your vehicle and [other supported brands](https://smartcar.com/product/compatible-vehicles).
+If you have a modern vehicle with [telemetry](https://en.wikipedia.org/wiki/Telemetry) installed and remote telemetry access via a mobile app, such as [Toyota Connected Services](https://www.toyota.com/connected-services/) or other similar apps, you can use the [Smartcar](http://smartcar.com) [API](https://github.com/smartcar/python-sdk/tree/master) as a single entry point to retrieve data
+for all your remotely-connected vehicle(s).
 
 I was asked to play around with the Smartcar API and I obliged. After a brief exploration, I found
 that the Smartcar tutorial comes with Python SDK samples that work with the [Flask Web Framework](https://flask.palletsprojects.com/en/3.0.x/).  Having been a Djangonaut for the past several years, I can't help but create a miniature Django WIP (Work-in-progress) version for this.
@@ -55,7 +55,7 @@ to be exported later to your development environemnt.
 ![login](https://i.postimg.cc/L4xb3HvF/2024-07-07-15-53-39.jpg)
 - Click `Continue` and login to your vehicle's remote connect app
 - You will be presented with a view like this (if you have a Toyota)
-![authorize](https://i.postimg.cc/W3qrxwgv/2024-07-07-15-57-20.jpg)
+![authorize](https://i.postimg.cc/mgr0CP79/2024-07-07-15-57-20.jpg)
 - Click on the `Toyota` to proceed to this page
 ![allow](https://i.postimg.cc/gjjgrTw6/2024-07-07-16-02-35.jpg)
 - Since the data is fake, you might as well click `Allow` to proceed
@@ -71,4 +71,5 @@ There are 4 endpoints created for this Django app that integrates with the Smart
 - `/vehicles/`, is the list endpoint that returns a list of allowed vehicles for viewing using the `access code` 
 - `/vehicles/<str:id>`, is a single retrieve endpoint for vehicle data based on its id and using the `access code`
 
-Last but not least, you can extend this app to include a more comprehensive listing of Smartcar API endpoints and have fun. Happy Django! 
+Last but not least, you can extend this app to include a more comprehensive listing of Smartcar API endpoints and [other supported brands](https://smartcar.com/product/compatible-vehicles) and have fun. Happy Django! 
+
