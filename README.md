@@ -73,3 +73,4 @@ There are 4 endpoints created for this Django app that integrates with the Smart
 
 Last but not least, you can extend this app to include a more comprehensive listing of Smartcar API endpoints and [other supported brands](https://smartcar.com/product/compatible-vehicles) and have fun. Happy Django! 
 
+An online demo for this app is available [here](https://aws.djangodemo.com/smartcar/). Enjoy!
