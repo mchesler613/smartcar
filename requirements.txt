@@ -1,0 +1,20 @@
+argcomplete @ file:///private/tmp/python-argcomplete-20231102-5708-13la21v/argcomplete-3.1.4
+asgiref==3.8.1
+certifi==2024.7.4
+chardet==4.0.0
+click==8.1.7
+Django==5.0.6
+Flask==2.0.1
+Flask-Cors==3.0.10
+idna==2.10
+itsdangerous==2.2.0
+Jinja2==3.1.4
+MarkupSafe==2.1.5
+packaging @ file:///private/tmp/python-packaging-20231018-5901-huh5q4/packaging-23.2
+python-dateutil==2.9.0.post0
+requests==2.25.1
+six==1.16.0
+smartcar==6.3.0
+sqlparse==0.5.0
+urllib3==1.26.19
+Werkzeug==2.3.8
