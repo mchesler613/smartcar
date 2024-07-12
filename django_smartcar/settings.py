@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
-from dotenv import dotenv_values
+import os
+from dotenv import load_dotenv
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -18,19 +18,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Settings for environment varibles
 ENV_FILE=str(Path(BASE_DIR)) + '/.env'
-myvars = dotenv_values(ENV_FILE)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = myvars['SECRET_KEY']
+load_dotenv()
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SSL
 #SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -45,6 +45,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    "django_extensions",
     "smartcar_app.apps.SmartcarAppConfig",
     'django.contrib.admin',
     'django.contrib.auth',
@@ -138,6 +139,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # SMARTCAR settings
-SMARTCAR_CLIENT_ID = myvars['SMARTCAR_CLIENT_ID']
-SMARTCAR_CLIENT_SECRET = myvars['SMARTCAR_CLIENT_SECRET'] 
-SMARTCAR_REDIRECT_URI = myvars['SMARTCAR_REDIRECT_URI']
+SMARTCAR_CLIENT_ID = os.getenv('SMARTCAR_CLIENT_ID')
+SMARTCAR_CLIENT_SECRET = os.getenv('SMARTCAR_CLIENT_SECRET') 
+SMARTCAR_REDIRECT_URI = os.getenv('SMARTCAR_REDIRECT_URI')
