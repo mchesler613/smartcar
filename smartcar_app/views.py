@@ -1,11 +1,19 @@
-from django.http import HttpRequest, JsonResponse
-from django.shortcuts import redirect
-from smartcar import SmartcarException
-
 import smartcar
 
-# Ensure SETUP is completed, then instantiate an AuthClient
-client = smartcar.AuthClient(mode="test")
+from django.conf import settings
+from django.http import HttpRequest, JsonResponse
+from django.shortcuts import redirect
+from django.urls import reverse
+from smartcar import SmartcarException
+
+client_id = settings.SMARTCAR_CLIENT_ID
+client_secret = settings.SMARTCAR_CLIENT_SECRET
+redirect_uri = settings.SMARTCAR_REDIRECT_URI
+
+client = smartcar.AuthClient(
+  client_id, client_secret, redirect_uri,
+  mode="test"
+)
 
 # scope of permissions
 scope = ["read_vehicle_info"]
@@ -35,7 +43,7 @@ def exchange_code(request: HttpRequest):
     request.session['access_token'] = client.exchange_code(code).access_token
 
     # redirect the response the /vehicles/ endpoint
-    response = redirect("/vehicles/")
+    response = redirect(reverse("smartcar_app:vehicle-list"))
     return response
 
 
