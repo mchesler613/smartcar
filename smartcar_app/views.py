@@ -1,7 +1,11 @@
 import smartcar
 
 from django.conf import settings
-from django.http import HttpRequest, JsonResponse
+from django.http import (
+    HttpResponse,
+    HttpRequest,
+    JsonResponse
+)
 from django.shortcuts import redirect
 from django.urls import reverse
 from smartcar import SmartcarException
@@ -20,6 +24,26 @@ scope = ["read_vehicle_info"]
 
 
 # Create your views here.
+def home(request: HttpRequest):
+    html = (
+        '<html>'
+        '<head>'
+        '<style>'
+        'div '
+        '{height:100%;display:flex;align-items:center;justify-content:center}'
+        '</style>'
+        '</head>'
+        '<body>'
+        '<div>'
+        '<span>'
+        '<a href="authorize/">Connect to Smartcar API</a>'
+        '</span></div>'
+        '</body>'
+        '</html>'
+    )
+    return HttpResponse(html)
+
+
 def authorize(request: HttpRequest):
     """
     This view logins the user and authorizes the app to retrieve
